@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.serializeJSON.js"></script>
+</head>
+<body>
+<h2>=======登录页面=========</h2>
+    <form id="myForm">
+        username:<input type="text" name="username" id="username"/><br/>
+        password:<input type="password" name="password" id="password"/><br/>
+        remember me:<input type="checkbox" name="remember-me" value="true"/><br/>
+        <input type="submit" value="提交" id="btn" />
+    </form>
+
+</body>
+<script type="text/javascript">
+    // var username = document.getElementById('username');
+    // var password = document.getElementById('password');
+    // console.log(username);
+    // console.log(password);
+    // function formData() {
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/login',
+    //         data: {
+    //           'username' : username,
+    //           'password' : password
+    //         },
+    //         success:function (data) {
+    //             console.log(data);
+    //             alert(data);
+    //         },
+    //         error:function () {
+    //             console.log("异常");
+    //         }
+    //     })
+    // }
+    $(function () {
+        $('#btn').click(function () {
+            $.ajax({
+                type: 'post',
+                url: '/login',
+                data: $('#myForm').serialize(),
+                success: function (data) {
+                    console.log(data);
+                }
+            })
+        })
+    })
+</script>
+</html>
